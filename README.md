@@ -1,105 +1,166 @@
-# 함수형 프로그래밍과 ES6+ 예제 코드
+# 🧑‍💻 NextJS ThankQ_FE 가이드라인
 
-## 목차
+### `npm run dev`
 
-### 1. 함수형 자바스크립트 기본기
+Runs the app in the development mode.
 
-1.  평가와 일급
-2.  일급 함수
-3.  고차 함수
-4.  부수효과와 순수 함수
+### `npm run build`
 
-### 2. ES6에서의 순회와 이터러블/이터레이터 프로토콜
+Builds the app for production to the `out` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-1.  기존과 달라진 ES6에서의 리스트 순회
-2.  Array, Set, Map을 통해 알아보는 이터러블/이터레이터 프로토콜
-3.  사용자 정의 이터러블
-4.  전개 연산자
+터미널에 npm i 를 입력해서 package.json에 있는 라이브러리를 다운 받은 후, \
+npm run dev를 개발 모드 실행 & npm run build 를 하여 build 실행 -> out 폴더가 build 폴더
 
-### 3. 제너레이터와 이터레이터
+### `npm run start`
 
-1.  제너레이터와 이터레이터
-2.  odds
-3.  for...of, 전개 연산자, 구조 분해, 나머지 연산자
+### `npm run test`
 
-### 4. map, filter, reduce
+test the app using jest
 
-1.  map
-2.  이터러블 프로토콜을 따른 map의 다형성 1
-3.  이터러블 프로토콜을 따른 map의 다형성 2
-4.  filter
-5.  reduce
-6.  reduce 2
-7.  map+filter+reduce 중첩 사용과 함수형 사고
+<br/>
+<br/>
 
-### 5. 코드를 값으로 다루어 표현력 높이기
+# 🚀 Quick Start
 
-1.  go
-2.  pipe
-3.  go를 사용하여 읽기 좋은 코드로 만들기
-4.  go+curry를 사용하여 더 읽기 좋은 코드로 만들기
-5.  함수 조합으로 함수 만들기
+```bash
+cd <Project Name>
+npm install
+npm run dev
+```
 
-### 6. 장바구니 예제
+your site is now running at `http://localhost:3001`  
+Open [http://localhost:3001](http://localhost:3001) to view it in your browser.
 
-1.  총 수량, 총 가격
-2.  HTML로 출력하기
+# 🔧 Build Project
 
-### 7. 지연성 1
+```bash
+cd <Project Name>
+npm install
+npm run build
+```
 
-1.  range와 느긋한 L.range
-2.  range와 느긋한 L.range 테스트
-3.  take
-4.  제너레이터/이터레이터 프로토콜로 구현하는 지연 평가
-5.  L.map
-6.  L. filter
-7.  range, map, filter, take, reduce 중첩 사용
-8.  L.range, L.map, L.filter, take 의 평가 순서
-9.  엄격한 계산과 느긋한 계산의 효율성 비교
-10. map, filter 계열 함수들이 가지는 결합 법칙
-11. ES6의 기본 규악을 통해 구현하는 지연 평가의 장점
+`out` folder = `build` folder
+<br/>
 
-### 8. 지연성 2
+# 📁 Folder Structure
 
-1.  결과를 만드는 함수 reduce, take
-2.  queryStr 함수 만들기
-3.  Array.prototype.join 보다 다형성이 높은 join 함수
-4.  take, find
-5.  L.map, L.filter로 map과 filter 만들기
-6.  L.flatten, flatten
-7.  L.flatMap, flatMap
-8.  2차원 배열 다루기
-9.  지연성 / 이터러블 중심 프로그래밍 실무적인 코드
+A quick look at the directories you'll see in this project.
 
-### 9. 비동기/동시성 프로그래밍 1
+## Root driectory layout
 
-1.  callback과 Promise
-2.  비동기를 값으로 만드는 Promise
-3.  값으로서의 Promise 활용
-4.  합성 관점에서의 Promise와 모나드
-5.  Kleisli Composition 관점에서의 Promise
-6.  go, pipe, reduce에서 비동기 제어
-7.  promise.then의 중요한 규칙
+    .
+    ├── public              #
+    ├── pages               #
+    ├── @types              #
+    ├── styles              # css
+    ├── constants           #
+    ├── apis                #
+    ├── store               # global state
+    ├── components          #
+    ├── hooks               # Custom hooks
+    ├── utils               #
+    ├── README.md           #
+    └── ...
 
-### 10. 비동기/동시성 프로그래밍 2
+<br/>
 
-    1. 지연 평가 + Promise - L.map, map, take
-    2. Kleisli Composition - L.filter, filter, nop, take
-    3. reduce에서 nop 지원
-    4. 지연 평가 + Promise의 효율성
-    5. 지연된 함수열을 병렬적으로 평가하기 - C.reduce, C.take 1
-    6. 지연된 함수열을 병렬적으로 평가하기 - C.reduce, C.take 2
-    7. 즉시 병렬적으로 평가하기 - C.map, C.filter
-    8. 즉시, 지연, Promise, 병렬적 조합하기
-    9. 코드 간단히 정리
-    10. Node.js에서 SQL 병렬 평가로 얻은 효율
+## Pages
 
-### 11. 비동기/동시성 프로그래밍 3
+Each page is associated with a route based on its file name.
 
-    1. async/await
-    2. Q&A) Array.prototype.map이 있는데 왜 FxJS의 map 함수가 필요한지?
-    3. Q&A) 이제 비동기는 async/await로 제어할 수 있는데 왜 파이프라인이 필요한지?
-    4. Q&A) async/await와 파이프라인을 같이 사용하기도 하는지?
-    5. Q&A) 동기 상황에서 에러 핸들링은 어떻게 해야하는지?
-    6. Q&A) 비동기 상황에서 에러 핸들링은 어떻게 해야하는지?
-    7. Q&A) 동기/비동기 에러 핸들링에서의 파이프라인의 이점은?
+    .
+    ├── ...
+    ├── pages               #
+    │   ├── apis            # API endpoint
+    │   ├── _app.tsx        # App component to initialize pages
+    │   ├── _document.tsx   # Custom document to augment application's <html> and <body> tags
+    │   └── index.tsx       # Parent page
+    └── ...
+
+<br/>
+
+## Styles
+
+Css, theme configuration files are placed into this folder.
+
+    .
+    ├── ...
+    ├── styles              #
+    │   ├── globals.css     #
+    │   └── ...
+    └── ...
+
+<br/>
+
+## Components
+
+Components are independent and reusable bits of code.
+
+    .
+    ├── ...
+    ├── components          #
+    │ ├── @Layout           # Page Layout
+    │ ├── Button ...        # Atomic Components
+    │ ├── Hooks             # Custom React Hook
+    │ └── ...               #
+    └── ...
+
+<br/>
+
+## Api
+
+Api call related functions.
+<br/>
+
+## Hooks
+
+Custom hook allows you to extract some components logic into a reusable function that starts with use and that call can other hooks.
+
+    .
+    ├── ...
+    ├── hooks                #
+    │   ├── useHook.tsx      #
+    │   └── ...
+    └── ...
+
+<br/>
+
+## Utils
+
+Small snippets you can use throughout the application. Short and specific functions and constants used throughout application.
+
+<br/>
+
+## 🧑‍💻 React Component
+
+- **Extensions:** Use .tsx extension for React components.
+
+- **Filename:** Use PascalCase for filenames. E.g., ReservationCard.tsx.
+
+- **Reference Naming:** Use PascalCase for React components and camelCase for their instances.
+
+  ```tsx
+  // bad
+  import reservationCard from './ReservationCard';
+
+  // g
+  import ReservationCard from './ReservationCard';
+
+  // bad
+  const ReservationItem = <ReservationCard />;
+
+  // g
+  const reservationItem = <ReservationCard />;
+  ```
+
+  <br/>
+  <br/>
+
+# 🤔 Don't use React.FC
+
+1. 사용하지 않는 편이 더 간단하고 익숙합니다.
+2. children prop이 옵셔널로 포함되어 props 타입이 명확하지 못합니다.
+3. defaultProps가 정상적으로 동작하지 않습니다. defaultProps 사용하여 props의 초기 값을 설정하여도 값을 인식하지 못합니다.
+
+<br/>
